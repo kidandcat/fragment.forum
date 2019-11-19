@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button, input {
+  border: none;
+  outline: none;
+  height: 28px;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  border-radius: 1px;
+}
+
+button span {
+  margin-right: 5px;
+}
+
+.header {
+  height: 60px;
+  background-color: #17181f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header .content {
+  max-width: 1300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.header .content .left {
+  flex: 1;
+}
+
+.header img {
+  height: 40px;
+  cursor: pointer;
+}
+
+.header .content .search {
+  width: 160px;
+  margin-right: 10px;
+}
+
+.header .content button {
+  background-color: #fee860;
+  color: #17181f;
+  margin-right: 10px;
+}
