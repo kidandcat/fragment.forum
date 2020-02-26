@@ -1,7 +1,7 @@
 include karax / prelude
 import jsutils, dom, karax / jwebsockets
 
-{.reorder: on.}
+{.experimental: "codeReordering".}
 
 addStylesheet "style.css"
 addScript "https://kit.fontawesome.com/2bef865634.js"

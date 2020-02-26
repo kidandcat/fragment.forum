@@ -1,8 +1,10 @@
 include karax / prelude
-import jsutils, dom, karax / jwebsockets
+import jsutils, dom, karax / jwebsockets, ../components/forums
 
 {.reorder: on.}
 
 proc xHome*(): VNode =
   return buildHtml(tdiv(class="home")):
-    text "this is the home"
+    tdiv(class="sidecontent")
+    xForums()
+    tdiv(class="sidecontent")

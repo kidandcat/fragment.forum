@@ -1,12 +1,11 @@
 body {
   margin: 0;
 }
-
 * {
   box-sizing: border-box;
 }
-
-button, input {
+button,
+input {
   border: none;
   outline: none;
   height: 28px;
@@ -14,19 +13,16 @@ button, input {
   box-sizing: border-box;
   border-radius: 1px;
 }
-
 button span {
   margin-right: 5px;
 }
-
 .header {
   height: 60px;
-  background-color: #17181f;
+  background-color: #094747;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .header .content {
   max-width: 1300px;
   display: flex;
@@ -34,23 +30,22 @@ button span {
   align-items: center;
   width: 100%;
 }
-
 .header .content .left {
   flex: 1;
 }
-
 .header img {
   height: 40px;
   cursor: pointer;
 }
-
 .header .content .search {
   width: 160px;
   margin-right: 10px;
 }
-
 .header .content button {
   background-color: #fee860;
   color: #17181f;
   margin-right: 10px;
+}
+.sidecontent {
+  width: 33%;
 }
