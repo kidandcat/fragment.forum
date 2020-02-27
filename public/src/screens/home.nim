@@ -6,5 +6,6 @@ import jsutils, dom, karax / jwebsockets, ../components/forums
 proc xHome*(): VNode =
   return buildHtml(tdiv(class="home")):
     tdiv(class="sidecontent")
-    xForums()
+    tdiv(class="centralcontent"):
+      xForums()
     tdiv(class="sidecontent")

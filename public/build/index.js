@@ -755,6 +755,21 @@ function nimMin(a_24203, b_24204) {
 	return result_24205;
 
 }
+
+function eqStrings(a_23641, b_23642) {
+		    if (a_23641 == b_23642) return true;
+    if (a_23641 === null && b_23642.length == 0) return true;
+    if (b_23642 === null && a_23641.length == 0) return true;
+    if ((!a_23641) || (!b_23642)) return false;
+    var alen = a_23641.length;
+    if (alen != b_23642.length) return false;
+    for (var i = 0; i < alen; ++i)
+      if (a_23641[i] != b_23642[i]) return false;
+    return true;
+  
+
+	
+}
 var nim_program_result = 0;
 var global_raise_hook_18618 = [null];
 var local_raise_hook_18623 = [null];
@@ -3019,19 +3034,23 @@ function x_user_255041() {
 
 }
 
-function x_forum_253082(name_253084) {
+function x_sub_forum_253082(name_253084) {
 	var result_253085 = null;
 
-	var F={procname:"forums.xForum",prev:framePtr,filename:"forums.nim",line:0};
+	var F={procname:"forums.xSubForum",prev:framePtr,filename:"forums.nim",line:0};
 	framePtr = F;
 	BeforeRet: do {
-		F.line = 13;
-		F.line = 13;
+		F.line = 39;
+		F.line = 39;
 		var tmp_253086 = tree_172046(43, []);
-		F.line = 13;
-		tmp_253086.class = "category";
-		F.line = 14;
-		add_170786(tmp_253086, text_172164(name_253084));
+		F.line = 39;
+		tmp_253086.class = "subforum-element";
+		F.line = 40;
+		var tmp_253087 = tree_172046(31, []);
+		F.line = 41;
+		add_170786(tmp_253087, text_172164(name_253084));
+		F.line = 41;
+		add_170786(tmp_253086, tmp_253087);
 		result_253085 = tmp_253086;
 		break BeforeRet;
 	} while (false);
@@ -3041,51 +3060,148 @@ function x_forum_253082(name_253084) {
 
 }
 
-function x_forums_253104() {
-	var result_253106 = null;
+function x_forum_253109(name_253111) {
+	var result_253112 = null;
+
+	var F={procname:"forums.xForum",prev:framePtr,filename:"forums.nim",line:0};
+	framePtr = F;
+	BeforeRet: do {
+		F.line = 14;
+		var list_253114 = null;
+		if (eqStrings(name_253111, makeNimstrLit("General"))) {
+		F.line = 16;
+		if (list_253114 != null) { list_253114.push(makeNimstrLit("Offtopic")); } else { list_253114 = [makeNimstrLit("Offtopic")]; };
+		F.line = 17;
+		if (list_253114 != null) { list_253114.push(makeNimstrLit("Videos")); } else { list_253114 = [makeNimstrLit("Videos")]; };
+		F.line = 18;
+		if (list_253114 != null) { list_253114.push(makeNimstrLit("Viajes")); } else { list_253114 = [makeNimstrLit("Viajes")]; };
+		F.line = 19;
+		if (list_253114 != null) { list_253114.push(makeNimstrLit("Guerrillas")); } else { list_253114 = [makeNimstrLit("Guerrillas")]; };
+		F.line = 20;
+		if (list_253114 != null) { list_253114.push(makeNimstrLit("Tr\xC3\xA1fico ilegal de \xC3\xB3rganos")); } else { list_253114 = [makeNimstrLit("Tr\xC3\xA1fico ilegal de \xC3\xB3rganos")]; };
+		F.line = 21;
+		if (list_253114 != null) { list_253114.push(makeNimstrLit("Suicidios colectivos")); } else { list_253114 = [makeNimstrLit("Suicidios colectivos")]; };
+		F.line = 22;
+		if (list_253114 != null) { list_253114.push(makeNimstrLit("Cosas oscuras")); } else { list_253114 = [makeNimstrLit("Cosas oscuras")]; };
+		F.line = 23;
+		if (list_253114 != null) { list_253114.push(makeNimstrLit("Espadas l\xC3\xA1ser")); } else { list_253114 = [makeNimstrLit("Espadas l\xC3\xA1ser")]; };
+		F.line = 24;
+		if (list_253114 != null) { list_253114.push(makeNimstrLit("Recambios de impresoras")); } else { list_253114 = [makeNimstrLit("Recambios de impresoras")]; };
+		F.line = 25;
+		if (list_253114 != null) { list_253114.push(makeNimstrLit("Carcasas de m\xC3\xB3viles")); } else { list_253114 = [makeNimstrLit("Carcasas de m\xC3\xB3viles")]; };
+		F.line = 26;
+		if (list_253114 != null) { list_253114.push(makeNimstrLit("Colonias falsas")); } else { list_253114 = [makeNimstrLit("Colonias falsas")]; };
+		}
+		else {
+		if (eqStrings(name_253111, makeNimstrLit("Videojuegos"))) {
+		F.line = 28;
+		if (list_253114 != null) { list_253114.push(makeNimstrLit("Godot")); } else { list_253114 = [makeNimstrLit("Godot")]; };
+		F.line = 29;
+		if (list_253114 != null) { list_253114.push(makeNimstrLit("Unity")); } else { list_253114 = [makeNimstrLit("Unity")]; };
+		F.line = 30;
+		if (list_253114 != null) { list_253114.push(makeNimstrLit("Unreal")); } else { list_253114 = [makeNimstrLit("Unreal")]; };
+		}
+		}
+		F.line = 31;
+		F.line = 31;
+		var tmp_253217 = tree_172046(43, []);
+		F.line = 31;
+		tmp_253217.class = "forum-element";
+		F.line = 32;
+		var tmp_253218 = tree_172046(31, []);
+		F.line = 33;
+		add_170786(tmp_253218, text_172164(name_253111));
+		F.line = 33;
+		add_170786(tmp_253217, tmp_253218);
+		F.line = 34;
+		var tmp_253219 = tree_172046(43, []);
+		F.line = 34;
+		tmp_253219.class = "subforums-container";
+		L1: do {
+			F.line = 35;
+			var subforum_253414 = null;
+			F.line = 184;
+			var i_257253 = 0;
+			F.line = 185;
+			var l_257254 = (list_253114 != null ? list_253114.length : 0);
+			L2: do {
+				F.line = 186;
+					L3: while (true) {
+					if (!(i_257253 < l_257254)) break L3;
+						F.line = 35;
+						subforum_253414 = list_253114[chckIndx(i_257253, 0, (list_253114 != null ? list_253114.length : 0)+0-1)-0];
+						F.line = 37;
+						F.line = 37;
+						var tmp_253220 = x_sub_forum_253082(subforum_253414);
+						F.line = 37;
+						add_170786(tmp_253220, text_172164(makeNimstrLit("Pequena descripcion")));
+						add_170786(tmp_253219, tmp_253220);
+						F.line = 188;
+						i_257253 = addInt(i_257253, 1);
+						if (!(((list_253114 != null ? list_253114.length : 0) == l_257254))) {
+						F.line = 189;
+						failed_assert_impl_15266(makeNimstrLit("C:\\Users\\Rido\\scoop\\apps\\nim\\current\\lib\\system\\iterators.nim(189, 11) `len(a) == L` the length of the seq changed while iterating over it"));
+						}
+						
+					}
+			} while(false);
+		} while(false);
+		F.line = 37;
+		add_170786(tmp_253217, tmp_253219);
+		result_253112 = tmp_253217;
+		break BeforeRet;
+	} while (false);
+	framePtr = F.prev;
+
+	return result_253112;
+
+}
+
+function x_forums_253428() {
+	var result_253430 = null;
 
 	var F={procname:"forums.xForums",prev:framePtr,filename:"forums.nim",line:0};
 	framePtr = F;
 	BeforeRet: do {
 		F.line = 7;
-		var list_253109 = [makeNimstrLit("General"), makeNimstrLit("Videojuegos"), makeNimstrLit("Programaci\xC3\xB3n")];
+		var list_253433 = [makeNimstrLit("General"), makeNimstrLit("Videojuegos"), makeNimstrLit("Programaci\xC3\xB3n")];
 		F.line = 8;
 		F.line = 8;
-		var tmp_253110 = tree_172046(43, []);
+		var tmp_253434 = tree_172046(43, []);
 		F.line = 8;
-		tmp_253110.class = "category";
+		tmp_253434.class = "forum-index";
 		L1: do {
 			F.line = 9;
-			var forum_253175 = null;
+			var forum_253499 = null;
 			F.line = 17;
-			var i_257245 = 0;
-			if ((i_257245 <= 2)) {
+			var i_257246 = 0;
+			if ((i_257246 <= 2)) {
 			L2: do {
 				F.line = 19;
 					L3: while (true) {
 					if (!true) break L3;
 						F.line = 9;
-						forum_253175 = list_253109[chckIndx(i_257245, 0, (list_253109 != null ? list_253109.length : 0)+0-1)-0];
+						forum_253499 = list_253433[chckIndx(i_257246, 0, (list_253433 != null ? list_253433.length : 0)+0-1)-0];
 						F.line = 10;
-						add_170786(tmp_253110, x_forum_253082(forum_253175));
-						if ((2 <= i_257245)) {
+						add_170786(tmp_253434, x_forum_253109(forum_253499));
+						if ((2 <= i_257246)) {
 						F.line = 21;
 						break L2;
 						}
 						
 						F.line = 22;
-						i_257245 = addInt(i_257245, 1);
+						i_257246 = addInt(i_257246, 1);
 					}
 			} while(false);
 			}
 			
 		} while(false);
-		result_253106 = tmp_253110;
+		result_253430 = tmp_253434;
 		break BeforeRet;
 	} while (false);
 	framePtr = F.prev;
 
-	return result_253106;
+	return result_253430;
 
 }
 
@@ -3107,13 +3223,19 @@ function x_home_254014() {
 		F.line = 8;
 		add_170786(tmp_254017, tmp_254018);
 		F.line = 9;
-		add_170786(tmp_254017, x_forums_253104());
-		F.line = 10;
 		var tmp_254019 = tree_172046(43, []);
+		F.line = 9;
+		tmp_254019.class = "centralcontent";
 		F.line = 10;
-		tmp_254019.class = "sidecontent";
+		add_170786(tmp_254019, x_forums_253428());
 		F.line = 10;
 		add_170786(tmp_254017, tmp_254019);
+		F.line = 11;
+		var tmp_254020 = tree_172046(43, []);
+		F.line = 11;
+		tmp_254020.class = "sidecontent";
+		F.line = 11;
+		add_170786(tmp_254017, tmp_254020);
 		result_254016 = tmp_254017;
 		break BeforeRet;
 	} while (false);
