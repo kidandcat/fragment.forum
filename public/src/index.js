@@ -8,8 +8,7 @@ import Profile from './pages/Profile'
 import P404 from './pages/404'
 import { Layout } from 'antd'
 import { MenuEnum } from './utils/Constants'
-import 'antd/dist/antd.css'
-import './styles/styles.css'
+import './styles/styles.less'
 
 const { Content } = Layout
 
