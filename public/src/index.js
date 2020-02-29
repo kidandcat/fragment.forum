@@ -1,18 +1,34 @@
-import React from 'react'
+import React from 'reactn'
 import ReactDOM from 'react-dom'
-import { Typography } from 'antd'
-import 'antd/dist/antd.css'
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import Header from './components/Header'
+import Footer from './components/Footer'
+import Home from './pages/Home'
+import Profile from './pages/Profile'
+import P404 from './pages/404'
+import { Layout } from 'antd'
+import { MenuEnum } from './utils/Constants'
+import 'antd/dist/antd.css'
+import './styles/styles.css'
 
-const { Text } = Typography
+const { Content } = Layout
+
 function Main () {
   return (
-    <div>
-      <Header />
-      <div className='container'>
-        <Text mark>Ant Design</Text>
-      </div>
-    </div>
+    <Router>
+      <Layout>
+        <Header />
+        <Content id='content'>
+          <Switch>
+            <Route path={MenuEnum.home} component={Home} exact />
+            <Route path={MenuEnum.profile} component={Profile} exact />
+            <Route path={'/'} component={() => <Redirect to='/home' />} exact />
+            <Route component={P404} />
+          </Switch>
+        </Content>
+        <Footer />
+      </Layout>
+    </Router>
   )
 }
 

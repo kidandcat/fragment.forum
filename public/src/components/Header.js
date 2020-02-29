@@ -1,46 +1,32 @@
-import React from 'react'
-import { Menu } from 'antd'
-import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons'
+import React from 'reactn'
+import { Menu, Layout } from 'antd'
+import { HomeOutlined, UserOutlined } from '@ant-design/icons'
+import { MenuEnum } from '../utils/Constants'
+import { useHistory, useLocation } from 'react-router-dom'
 
-const { SubMenu } = Menu
+const { Header } = Layout
 
-function handleClick (e) {
-  console.log('click ', e)
-}
-
-export default function Header () {
+export default function MyHeader () {
+  const history = useHistory()
+  const key = useLocation().pathname
   return (
-    <Menu onClick={handleClick} selectedKeys={0} mode='horizontal'>
-      <Menu.Item key='mail'>
-        <MailOutlined />
-            Navigation One
-      </Menu.Item>
-      <Menu.Item key='app' disabled>
-        <AppstoreOutlined />
-            Navigation Two
-      </Menu.Item>
-      <SubMenu
-        title={
-          <span className='submenu-title-wrapper'>
-            <SettingOutlined />
-                Navigation Three - Submenu
-          </span>
-        }
+    <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }} id='header'>
+      <div className='logo' />
+      <Menu onClick={(e) => { history.push(e.key) }}
+        selectedKeys={key}
+        mode='horizontal'
+        theme='dark'
+        style={{ lineHeight: '64px' }}
       >
-        <Menu.ItemGroup title='Item 1'>
-          <Menu.Item key='setting:1'>Option 1</Menu.Item>
-          <Menu.Item key='setting:2'>Option 2</Menu.Item>
-        </Menu.ItemGroup>
-        <Menu.ItemGroup title='Item 2'>
-          <Menu.Item key='setting:3'>Option 3</Menu.Item>
-          <Menu.Item key='setting:4'>Option 4</Menu.Item>
-        </Menu.ItemGroup>
-      </SubMenu>
-      <Menu.Item key='alipay'>
-        <a href='https://ant.design' target='_blank' rel='noopener noreferrer'>
-              Navigation Four - Link
-        </a>
-      </Menu.Item>
-    </Menu>
+        <Menu.Item key={MenuEnum.home}>
+          <HomeOutlined />
+            Home
+        </Menu.Item>
+        <Menu.Item key={MenuEnum.profile}>
+          <UserOutlined />
+            Profile
+        </Menu.Item>
+      </Menu>
+    </Header>
   )
 }
