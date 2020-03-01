@@ -3,9 +3,6 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
-import Home from './pages/Home'
-import Profile from './pages/Profile'
-import ForumList from './pages/ForumList'
 import P404 from './pages/404'
 import { Layout, Col, Row } from 'antd'
 import { MenuPathEnum, MenuPageEnum, MenuNameEnum } from './utils/Constants'
@@ -23,14 +20,14 @@ function Main () {
         <Content id='content'>
           <Row>
             <Switch>
-              { Object.keys(MenuNameEnum).map((keyName) => {
+              { Object.keys(MenuPageEnum).map((keyName) => {
                 var MenuPath = MenuPathEnum[keyName]
                 return <Route key={keyName} path={MenuPath} component={LeftSider} exact />
               })}
             </Switch>
             <Col flex={4}>
               <Switch>
-                {Object.keys(MenuNameEnum).map((keyName) => {
+                {Object.keys(MenuPageEnum).map((keyName) => {
                   var MenuPage = MenuPageEnum[keyName]
                   var MenuPath = MenuPathEnum[keyName]
                   return <Route key={keyName} path={MenuPath} component={MenuPage} exact />
@@ -40,7 +37,7 @@ function Main () {
               </Switch>
             </Col>
             <Switch>
-              {Object.keys(MenuNameEnum).map((keyName) => {
+              {Object.keys(MenuPageEnum).map((keyName) => {
                 var MenuPath = MenuPathEnum[keyName]
                 return <Route key={keyName} path={MenuPath} component={RightSider} exact />
               })}

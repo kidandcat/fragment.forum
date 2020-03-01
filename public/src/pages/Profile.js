@@ -1,5 +1,6 @@
 import React from 'reactn'
+import { Row } from 'antd'
 
 export default function Profile () {
-  return <div>Profile</div>
+  return <Row id='main-container'>Profile</Row>
 }

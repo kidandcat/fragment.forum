@@ -1,5 +1,6 @@
 import React from 'reactn'
+import { Row } from 'antd'
 
 export default function Home () {
-  return <div>Home</div>
+  return <Row id='main-container'>Home</Row>
 }

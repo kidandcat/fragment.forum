@@ -3,7 +3,7 @@ import { Menu, Layout, Row, Col } from 'antd'
 import { MenuPathEnum, MenuIconEnum, MenuNameEnum } from '../utils/Constants'
 import { useHistory, useLocation } from 'react-router-dom'
 import { FirstUppercase } from '../utils/Utilities'
-
+import { AppstoreTwoTone } from '@ant-design/icons'
 const { Header } = Layout
 
 export default function MyHeader () {
@@ -14,7 +14,9 @@ export default function MyHeader () {
       <Row>
         <Col flex={1} />
         <Col flex={4}>
-          <div className='logo' />
+          <div className='logo' >
+            <AppstoreTwoTone twoToneColor='#eb2f96' />
+          </div>
           <Menu onClick={(e) => { history.push(e.key) }}
             selectedKeys={key}
             mode='horizontal'

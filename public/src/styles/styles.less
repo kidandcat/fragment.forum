@@ -1,6 +1,7 @@
 @import '~antd/dist/antd.less';
 
 @min-width-supported: 960px;
+@central-and-sider-padding: 15px;
 /*
 @primary-color: #84e2d8;
 @secondary-color: #2f54eb;
@@ -32,13 +33,20 @@ body{
 }
 
 #header .logo {
-    width: 120px;
-    height: 31px;
-    background: rgba(255, 255, 255, 0.2);
-    margin: 16px 24px 16px 0;
+    width: 60px;
     float: left;
+    font-size: 50px;
   }
 
-  #content {
-    padding-top: 67px;
-  }
+#content {
+  padding-top: 67px;
+}
+
+// We have two siders and a main container
+#main-container {
+  padding: @central-and-sider-padding;
+}
+
+.sider-container {
+  padding: @central-and-sider-padding;
+}
