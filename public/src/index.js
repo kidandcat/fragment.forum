@@ -5,7 +5,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import P404 from './pages/404'
 import { Layout, Col, Row } from 'antd'
-import { MenuPathEnum, MenuPageEnum } from './utils/Constants'
+import { MenuPathEnum, MenuPageEnum, ExcludeSiders } from './utils/Constants'
 import './styles/styles.less'
 import LeftSider from './components/LeftSider'
 import RightSider from './components/RightSider'
@@ -21,14 +21,20 @@ function Main () {
       <Layout>
         <Header />
         <Content id='content'>
-          <Row>
+          <Row style={{ height: '100%', backgroundColor: 'red' }}>
+            {
+            // TODO: esto no quiere ponerse al 100% suputa madre}
+            }
             <Switch>
               { Object.keys(MenuPageEnum).map((keyName) => {
                 var MenuPath = MenuPathEnum[keyName]
+                if (ExcludeSiders.includes(keyName)) {
+                  return
+                }
                 return <Route key={keyName} path={MenuPath} component={LeftSider} exact />
               })}
             </Switch>
-            <Col flex={4}>
+            <Col flex={4} style={{ height: '100%' }}>
               <Switch>
                 {Object.keys(MenuPageEnum).map((keyName) => {
                   var MenuPage = MenuPageEnum[keyName]
@@ -42,6 +48,9 @@ function Main () {
             <Switch>
               {Object.keys(MenuPageEnum).map((keyName) => {
                 var MenuPath = MenuPathEnum[keyName]
+                if (ExcludeSiders.includes(keyName)) {
+                  return
+                }
                 return <Route key={keyName} path={MenuPath} component={RightSider} exact />
               })}
               <Route component={() => <Row />} />
