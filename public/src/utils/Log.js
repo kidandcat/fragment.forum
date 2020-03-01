@@ -1,19 +1,19 @@
 const debug = true
 export default function logger (type) {
   return {
-    log: (...args) => {
+    info: (...args) => {
       if (debug) {
-        console.log(type, ...args)
+        console.log(type + ':', ...args)
       }
     },
     error: (...args) => {
       if (debug) {
-        console.error(type, ...args)
+        console.error(type + ':', ...args)
       }
     },
     warn: (...args) => {
       if (debug) {
-        console.warn(type, ...args)
+        console.warn(type + ':', ...args)
       }
     }
   }

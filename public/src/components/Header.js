@@ -21,17 +21,17 @@ export default function MyHeader () {
             selectedKeys={key}
             mode='horizontal'
             theme='dark'
-            style={{ lineHeight: '64px' }}
+            style={{ lineHeight: '64px', display: 'flex' }}
           >
             {
               Object.keys(MenuNameEnum).map((keyName) => {
-                var MenuName = MenuNameEnum[keyName]
+                var MenuName = MenuNameEnum[keyName] || ''
                 var MenuIcon = MenuIconEnum[keyName]
-                var MenuPath = MenuPathEnum[keyName]
-                var styles = MenuName === MenuNameEnum.profile ? { float: 'right' } : {}
+                var MenuPath = MenuPathEnum[keyName] || ''
+                var styles = keyName === 'separator' ? { flex: 1, cursor: 'default' } : {}
                 return (
-                  <Menu.Item key={MenuPath} style={styles}>
-                    <MenuIcon />
+                  <Menu.Item key={MenuPath} style={styles} disabled={keyName === 'separator'}>
+                    {MenuIcon && <MenuIcon />}
                     {FirstUppercase(MenuName)}
                   </Menu.Item>
                 )

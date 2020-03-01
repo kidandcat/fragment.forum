@@ -5,12 +5,15 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import P404 from './pages/404'
 import { Layout, Col, Row } from 'antd'
-import { MenuPathEnum, MenuPageEnum, MenuNameEnum } from './utils/Constants'
+import { MenuPathEnum, MenuPageEnum } from './utils/Constants'
 import './styles/styles.less'
 import LeftSider from './components/LeftSider'
 import RightSider from './components/RightSider'
+import { connect } from './server'
 
 const { Content } = Layout
+
+connect()
 
 function Main () {
   return (
