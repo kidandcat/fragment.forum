@@ -5,10 +5,13 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import Profile from './pages/Profile'
+import ForumList from './pages/ForumList'
 import P404 from './pages/404'
-import { Layout } from 'antd'
-import { MenuEnum } from './utils/Constants'
+import { Layout, Col, Row } from 'antd'
+import { MenuPathEnum, MenuPageEnum, MenuNameEnum } from './utils/Constants'
 import './styles/styles.less'
+import LeftSider from './components/LeftSider'
+import RightSider from './components/RightSider'
 
 const { Content } = Layout
 
@@ -18,12 +21,32 @@ function Main () {
       <Layout>
         <Header />
         <Content id='content'>
-          <Switch>
-            <Route path={MenuEnum.home} component={Home} exact />
-            <Route path={MenuEnum.profile} component={Profile} exact />
-            <Route path={'/'} component={() => <Redirect to='/home' />} exact />
-            <Route component={P404} />
-          </Switch>
+          <Row>
+            <Switch>
+              { Object.keys(MenuNameEnum).map((keyName) => {
+                var MenuPath = MenuPathEnum[keyName]
+                return <Route key={keyName} path={MenuPath} component={LeftSider} exact />
+              })}
+            </Switch>
+            <Col flex={4}>
+              <Switch>
+                {Object.keys(MenuNameEnum).map((keyName) => {
+                  var MenuPage = MenuPageEnum[keyName]
+                  var MenuPath = MenuPathEnum[keyName]
+                  return <Route key={keyName} path={MenuPath} component={MenuPage} exact />
+                })}
+                <Route path={'/'} component={() => <Redirect to={MenuPathEnum.home} />} exact />
+                <Route component={P404} />
+              </Switch>
+            </Col>
+            <Switch>
+              {Object.keys(MenuNameEnum).map((keyName) => {
+                var MenuPath = MenuPathEnum[keyName]
+                return <Route key={keyName} path={MenuPath} component={RightSider} exact />
+              })}
+              <Route component={() => <Row />} />
+            </Switch>
+          </Row>
         </Content>
         <Footer />
       </Layout>

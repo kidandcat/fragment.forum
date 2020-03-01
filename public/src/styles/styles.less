@@ -1,5 +1,6 @@
 @import '~antd/dist/antd.less';
 
+@min-width-supported: 960px;
 /*
 @primary-color: #84e2d8;
 @secondary-color: #2f54eb;
@@ -12,6 +13,9 @@
 @processing-color: #13c2c2;
 */
 
+body{
+  min-width: @min-width-supported;
+}
 
 #app {
     height: 100%;
@@ -19,6 +23,12 @@
 
 #app .ant-layout{
     min-height: 100%;
+}
+#header{
+  min-width: @min-width-supported;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
 }
 
 #header .logo {

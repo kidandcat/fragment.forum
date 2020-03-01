@@ -1,6 +1,6 @@
 import React from 'reactn'
 import { Result, Button } from 'antd'
-import { MenuEnum } from '../utils/Constants'
+import { MenuPathEnum } from '../utils/Constants'
 export default function P404 () {
   return (
     <Result
@@ -9,7 +9,7 @@ export default function P404 () {
       subTitle='Sorry, the page you visited does not exist.'
       extra={
         <div>
-          <Button type='primary' href={MenuEnum.home}>
+          <Button type='primary' href={MenuPathEnum.home}>
                 Back Home
           </Button>
         </div>
