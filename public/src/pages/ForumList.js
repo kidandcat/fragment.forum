@@ -1,4 +1,4 @@
-import React from 'reactn'
+import React, { useState } from 'reactn'
 import { Row, Typography, Col } from 'antd'
 import SubforumList from '../components/SubforumList'
 const { Title } = Typography
@@ -6,18 +6,28 @@ const { Title } = Typography
 export default function ForumList () {
   // Get forums
   var forums = ['General', 'Videojuegos', 'Programación', 'Miscelanea']
-  return (
-    forums.map((key) => {
-      return (
-        <Row id='main-container' key={key}>
-          <Col span={24}>
-            <Title>{key}</Title>
-          </Col>
-          <Col span={24}>
-            <SubforumList forum={key} />
-          </Col>
-        </Row>
-      )
-    })
-  )
+
+  const [forumSelected, selectForum] = useState(false)
+  if (forumSelected) {
+    return <div>{forumSelected.forum + '->' + forumSelected.subforum}</div>
+  } else {
+    return (
+      <React.Fragment>
+        {
+          forums.map((key) => {
+            return (
+              <div key={key}>
+                <div>
+                  <Title>{key}</Title>
+                </div>
+                <div>
+                  <SubforumList forum={key} selectForum={selectForum} />
+                </div>
+              </div>
+            )
+          })
+        }
+      </React.Fragment>
+    )
+  }
 }

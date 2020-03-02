@@ -40,19 +40,18 @@ body{
 
 #content {
   padding-top: 67px;
+  display: flex;
 }
 
 // We have two siders and a main container
 #main-container {
   padding: @central-and-sider-padding;
+  flex:4;
+  display: flex;
+  flex-direction: column;
 }
 
 .sider-container {
   padding: @central-and-sider-padding;
-}
-
-#admin-container {
-  margin-top: -3px;
-  background-color: black;
-  height: 100%;
+  flex:1;
 }

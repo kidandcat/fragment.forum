@@ -1,5 +1,5 @@
 import React, { useState } from 'reactn'
-import { Row, Menu } from 'antd'
+import { Menu } from 'antd'
 import { AppstoreOutlined, MailOutlined } from '@ant-design/icons'
 
 let previousKey = ''
@@ -22,8 +22,7 @@ function onOpenChange (keys, setOpenKeys) {
 
 export default function Admin () {
   const [openKeys, setOpenKeys] = useState([])
-  return <Row id='admin-container'>
-
+  return (
     <Menu
       mode='inline'
       openKeys={openKeys}
@@ -62,7 +61,7 @@ export default function Admin () {
       </Menu.Item>
 
     </Menu>
-  </Row>
+  )
 }
 
 const { SubMenu } = Menu

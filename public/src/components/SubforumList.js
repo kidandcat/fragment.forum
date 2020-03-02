@@ -1,8 +1,9 @@
 import React from 'reactn'
 import { Col, Card, Row } from 'antd'
 
-function GoToSubforum (forum, subforum) {
+function GoToSubforum (forum, subforum, selectForum) {
   // TODO: fill me
+  selectForum({ forum: forum, subforum: subforum })
   console.log('Not implemented yet... ' + forum + ' -> ' + subforum)
 }
 
@@ -15,7 +16,7 @@ export default function SubforumList (props) {
       {
         subforums.map((subforumName) => {
           return (
-            <Col key={subforumName} span={12} style={{ cursor: 'pointer' }} onClick={() => GoToSubforum(props.forum, subforumName)}>
+            <Col key={subforumName} span={12} style={{ cursor: 'pointer' }} onClick={() => GoToSubforum(props.forum, subforumName, props.selectForum)}>
               <Card title={subforumName} bordered>
                         Descripción del foro {subforumName}.
               </Card>

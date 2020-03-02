@@ -1,10 +1,10 @@
-import React from 'reactn'
+import React, { setGlobal } from 'reactn'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import P404 from './pages/404'
-import { Layout, Col, Row } from 'antd'
+import { Layout, Row } from 'antd'
 import { MenuPathEnum, MenuPageEnum, ExcludeSiders } from './utils/Constants'
 import './styles/styles.less'
 import LeftSider from './components/LeftSider'
@@ -15,47 +15,66 @@ const { Content } = Layout
 
 connect()
 
+setGlobal({
+  mode: 'pc'
+}).then(onresize)
+
+window.addEventListener('resize', onresize)
+
+function onresize () {
+  const w = window.innerWidth
+  let mode = ''
+  if (w > 1200) {
+    mode = 'pc'
+  } else if (w > 760) {
+    mode = 'tablet'
+  } else {
+    mode = 'phone'
+  }
+  setGlobal({
+    mode
+  })
+}
+
 function Main () {
   return (
     <Router>
       <Layout>
         <Header />
         <Content id='content'>
-          <Row style={{ height: '100%', backgroundColor: 'red' }}>
-            {
+          {
             // TODO: esto no quiere ponerse al 100% suputa madre}
-            }
-            <Switch>
-              { Object.keys(MenuPageEnum).map((keyName) => {
-                var MenuPath = MenuPathEnum[keyName]
-                if (ExcludeSiders.includes(keyName)) {
-                  return
-                }
-                return <Route key={keyName} path={MenuPath} component={LeftSider} exact />
-              })}
-            </Switch>
-            <Col flex={4} style={{ height: '100%' }}>
-              <Switch>
-                {Object.keys(MenuPageEnum).map((keyName) => {
-                  var MenuPage = MenuPageEnum[keyName]
-                  var MenuPath = MenuPathEnum[keyName]
-                  return <Route key={keyName} path={MenuPath} component={MenuPage} exact />
-                })}
-                <Route path={'/'} component={() => <Redirect to={MenuPathEnum.home} />} exact />
-                <Route component={P404} />
-              </Switch>
-            </Col>
+          }
+          <Switch>
+            { Object.keys(MenuPageEnum).map((keyName) => {
+              var MenuPath = MenuPathEnum[keyName]
+              if (ExcludeSiders.includes(keyName)) {
+                return
+              }
+              return <Route key={keyName} path={MenuPath} component={LeftSider} exact />
+            })}
+          </Switch>
+          <div id='main-container'>
             <Switch>
               {Object.keys(MenuPageEnum).map((keyName) => {
+                var MenuPage = MenuPageEnum[keyName]
                 var MenuPath = MenuPathEnum[keyName]
-                if (ExcludeSiders.includes(keyName)) {
-                  return
-                }
-                return <Route key={keyName} path={MenuPath} component={RightSider} exact />
+                return <Route key={keyName} path={MenuPath} component={MenuPage} exact />
               })}
-              <Route component={() => <Row />} />
+              <Route path={'/'} component={() => <Redirect to={MenuPathEnum.home} />} exact />
+              <Route component={P404} />
             </Switch>
-          </Row>
+          </div>
+          <Switch>
+            {Object.keys(MenuPageEnum).map((keyName) => {
+              var MenuPath = MenuPathEnum[keyName]
+              if (ExcludeSiders.includes(keyName)) {
+                return
+              }
+              return <Route key={keyName} path={MenuPath} component={RightSider} exact />
+            })}
+            <Route component={() => <Row />} />
+          </Switch>
         </Content>
         <Footer />
       </Layout>
