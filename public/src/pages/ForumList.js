@@ -1,5 +1,5 @@
 import React, { useState } from 'reactn'
-import { Row, Typography, Col } from 'antd'
+import { Typography } from 'antd'
 import SubforumList from '../components/SubforumList'
 const { Title } = Typography
 
