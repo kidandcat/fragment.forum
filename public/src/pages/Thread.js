@@ -2,5 +2,5 @@ import React from 'reactn'
 import Post from '../components/Post'
 
 export default function Thread () {
-  return <Post />
+  return <Post id='mid-container' />
 }

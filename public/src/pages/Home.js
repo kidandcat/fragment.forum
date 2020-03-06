@@ -1,5 +1,5 @@
 import React from 'reactn'
 
 export default function Home () {
-  return <React.Fragment>Home</React.Fragment>
+  return <div id='mid-container'>Home</div>
 }

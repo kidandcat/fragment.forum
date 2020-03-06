@@ -9,25 +9,27 @@ export default function ForumList () {
 
   const [forumSelected, selectForum] = useState(false)
   if (forumSelected) {
-    return <div>{forumSelected.forum + '->' + forumSelected.subforum}</div>
+    return <div id='mid-container'>{forumSelected.forum + '->' + forumSelected.subforum}</div>
   } else {
     return (
-      <React.Fragment>
-        {
-          forums.map((key) => {
-            return (
-              <div key={key}>
-                <div>
-                  <Title>{key}</Title>
+      <div id='mid-container'>
+        <div id='forum-list'>
+          {
+            forums.map((key) => {
+              return (
+                <div key={key}>
+                  <div>
+                    <Title>{key}</Title>
+                  </div>
+                  <div>
+                    <SubforumList forum={key} selectForum={selectForum} />
+                  </div>
                 </div>
-                <div>
-                  <SubforumList forum={key} selectForum={selectForum} />
-                </div>
-              </div>
-            )
-          })
-        }
-      </React.Fragment>
+              )
+            })
+          }
+        </div>
+      </div>
     )
   }
 }

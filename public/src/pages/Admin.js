@@ -23,44 +23,46 @@ function onOpenChange (keys, setOpenKeys) {
 export default function Admin () {
   const [openKeys, setOpenKeys] = useState([])
   return (
-    <Menu
-      mode='inline'
-      openKeys={openKeys}
-      onOpenChange={(key) => onOpenChange(key, setOpenKeys)}
-      style={{ width: 256 }}
-    >
-      <SubMenu
-        key='admin'
-        title={
-          <span>
-            <MailOutlined />
-            <span>Administración</span>
-          </span>
-        }
+    <div id='admin'>
+      <Menu id='admin-menu'
+        mode='inline'
+        openKeys={openKeys}
+        onOpenChange={(key) => onOpenChange(key, setOpenKeys)}
       >
-        <Menu.Item key='admin-rights'>Permisos</Menu.Item>
-        <Menu.Item key='moderators'>Moderadores</Menu.Item>
-      </SubMenu>
-      <SubMenu
-        key='users'
-        title={
+        <SubMenu
+          key='admin'
+          title={
+            <span>
+              <MailOutlined />
+              <span>Administración</span>
+            </span>
+          }
+        >
+          <Menu.Item key='admin-rights'>Permisos</Menu.Item>
+          <Menu.Item key='moderators'>Moderadores</Menu.Item>
+        </SubMenu>
+        <SubMenu
+          key='users'
+          title={
+            <span>
+              <AppstoreOutlined />
+              <span>Usuarios</span>
+            </span>
+          }
+        >
+          <Menu.Item key='moderate'>Moderación</Menu.Item>
+          <Menu.Item key='users-rights'>Permisos</Menu.Item>
+        </SubMenu>
+        <Menu.Item key='web'>
           <span>
             <AppstoreOutlined />
-            <span>Usuarios</span>
+            <span>Web</span>
           </span>
-        }
-      >
-        <Menu.Item key='moderate'>Moderación</Menu.Item>
-        <Menu.Item key='users-rights'>Permisos</Menu.Item>
-      </SubMenu>
-      <Menu.Item key='web'>
-        <span>
-          <AppstoreOutlined />
-          <span>Web</span>
-        </span>
-      </Menu.Item>
+        </Menu.Item>
 
-    </Menu>
+      </Menu>
+      <div>a</div>
+    </div>
   )
 }
 

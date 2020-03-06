@@ -1,7 +1,7 @@
 @import '~antd/dist/antd.less';
 
 @min-width-supported: 960px;
-@central-and-sider-padding: 15px;
+@paddin-from-menu: 15px;
 /*
 @primary-color: #84e2d8;
 @secondary-color: #2f54eb;
@@ -39,19 +39,37 @@ body{
   }
 
 #content {
-  padding-top: 67px;
+  padding-top: 64px;
   display: flex;
 }
 
 // We have two siders and a main container
 #main-container {
-  padding: @central-and-sider-padding;
   flex:4;
-  display: flex;
-  flex-direction: column;
+}
+
+#mid-container {
+  padding: @paddin-from-menu;
 }
 
 .sider-container {
-  padding: @central-and-sider-padding;
+  padding: @paddin-from-menu;
   flex:1;
+}
+
+#forum-list {
+  display: 'flex';
+  flex-direction: 'column';
+}
+
+#admin {
+  display: flex;
+  flex-direction: row;
+  flex: 5;
+}
+
+#admin-menu {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
 }
