@@ -2,7 +2,7 @@ import React from 'reactn'
 import { Menu, Layout, Row, Col } from 'antd'
 import { MenuPathEnum, MenuIconEnum, MenuNameEnum } from '../utils/Constants'
 import { useHistory, useLocation } from 'react-router-dom'
-import { FirstUppercase } from '../utils/Utilities'
+import { firstUppercase } from '../utils/Utilities'
 import { AppstoreTwoTone } from '@ant-design/icons'
 const { Header } = Layout
 
@@ -32,7 +32,7 @@ export default function MyHeader () {
                 return (
                   <Menu.Item key={MenuPath} style={styles} disabled={keyName === 'separator'}>
                     {MenuIcon && <MenuIcon />}
-                    {FirstUppercase(MenuName)}
+                    {firstUppercase(MenuName)}
                   </Menu.Item>
                 )
               }
