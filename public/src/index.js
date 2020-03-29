@@ -42,9 +42,6 @@ function Main () {
       <Layout>
         <Header />
         <Content id='content'>
-          {
-            // TODO: esto no quiere ponerse al 100% suputa madre}
-          }
           <Switch>
             { Object.keys(MenuPageEnum).map((keyName) => {
               var MenuPath = MenuPathEnum[keyName]
@@ -61,6 +58,7 @@ function Main () {
                 var MenuPath = MenuPathEnum[keyName]
                 return <Route key={keyName} path={MenuPath} component={MenuPage} exact />
               })}
+              <Route path={MenuPathEnum.post} component={MenuPageEnum.post} exact />
               <Route path={'/'} component={() => <Redirect to={MenuPathEnum.home} />} exact />
               <Route component={P404} />
             </Switch>
