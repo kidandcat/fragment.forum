@@ -3,36 +3,38 @@ import { Comment, Tooltip, Avatar } from 'antd'
 import moment from 'moment'
 import { DislikeOutlined, LikeOutlined, DislikeFilled, LikeFilled } from '@ant-design/icons'
 
-function like (setLikes) {
-  // TODO
-  console.log('Not implemented yet')
-}
-
-function dislike (setDislikes) {
-  // TODO
-  console.log('Not implemented yet')
+function onStateChange (likes, likeState, setLikes, setLikeState) {
+  let addition = 0
+  if(likeState){
+    addition = -1
+  } else {
+    addition = 1
+  }
+  setLikes(likes+addition)
+  setLikeState(!likeState)
 }
 
 export default function Post () {
   // TODO: get if you have liked or disliked the post from backend
-  const liked = false
-  const disliked = false
   const [likes, setLikes] = useState(0)
+  const [likeState, setLikeState] = useState(false)
+
   const [dislikes, setDislikes] = useState(0)
+  const [dislikeState, setDislikeState] = useState(false)
 
   const actions = [
     <span key='comment-basic-like'>
       <Tooltip title='Like'>
-        {React.createElement(liked ? LikeFilled : LikeOutlined, {
-          onClick: like(setLikes)
+        {React.createElement(likeState ? LikeFilled : LikeOutlined, {
+          onClick: ()=>onStateChange(likes, likeState, setLikes, setLikeState)
         })}
       </Tooltip>
       <span className='comment-action'>{likes}</span>
     </span>,
     <span key=' key="comment-basic-dislike"'>
       <Tooltip title='Dislike'>
-        {React.createElement(disliked ? DislikeFilled : DislikeOutlined, {
-          onClick: dislike(setDislikes)
+        {React.createElement(dislikeState ? DislikeFilled : DislikeOutlined, {
+          onClick: ()=>onStateChange(dislikes, dislikeState, setDislikes, setDislikeState)
         })}
       </Tooltip>
       <span className='comment-action'>{dislikes}</span>

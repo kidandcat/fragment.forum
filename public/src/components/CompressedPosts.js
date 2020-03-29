@@ -5,6 +5,7 @@ import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons'
 const listData = []
 for (let i = 0; i < 5; i++) {
   listData.push({
+    id:i,
     title: 'Ayuda por favor: mi madre es transexual y se ha liado con mi prima',
     content:
       'Haha, vaya puto trol, 0/10. Reportado por gilipollas',
@@ -30,7 +31,7 @@ export default function CompressedPosts () {
       renderItem={item => (
         <List.Item
           style={{ borderStyle: 'solid', borderWidth: '1px', borderRadius: '2px', padding: '5px' }}
-          key={item.title}
+          key={item.id}
           actions={[
             <IconText icon={StarOutlined} text={item.likes} key='list-vertical-star-o' />,
             <IconText icon={LikeOutlined} text={item.dislikes} key='list-vertical-like-o' />,

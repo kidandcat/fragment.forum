@@ -7,7 +7,7 @@ const { Title } = Typography
 export default function Profile (props) {
   let posts = []
   for (let i = 0; i < 200; i++) {
-    posts.push(<Post />)
+    posts.push(<Post key={i} />)
   }
   return (
     <div id='mid-container' style={{ display: 'flex', flexDirection: 'column' }}>
